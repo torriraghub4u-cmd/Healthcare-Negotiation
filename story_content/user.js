@@ -16,121 +16,85 @@ var slideHeight = player.slideHeight;
 var getKeyDown = player.getKeyDown;
 var keydown = player.keydown;
 var keyup = player.keyup;
-window.Script1 = function()
+window.Script12 = function()
 {
-  (function() {
-    // Define the confetti effect within the slide
-    function ConfettiEffect() {
-        var confettiSettings = {
-            particleCount: 100,
-            spread: 160,
-            startVelocity:50, // Reduced initial velocity for slower upward movement
-            gravity: 0.5, // Lower gravity for slower falling
-            airResistance: 0.99, // Simulate air resistance
-            origin: { y: 1 } // Start from the bottom
-        };
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+} else {
+    document.exitFullscreen();
+}
+}
 
-        // Main confetti function using the slide area
-        (function frame() {
-            // Call the confetti effect popping from below
-            fireConfetti({ ...confettiSettings, angle: 90 }); // Pop straight up from below
-        })();
-    }
+window.Script13 = function()
+{
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+} else {
+    document.exitFullscreen();
+}
+}
 
-    // Manually insert a basic version of the confetti engine that targets the slide
-    function fireConfetti(options) {
-        // Target only the content of the slide's container
-        var slideContent = document.querySelector('.slide'); // Adjusted to find the Storyline slide container
-        if (!slideContent) {
-            slideContent = document.body; // Fallback
-        }
+window.Script14 = function()
+{
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+} else {
+    document.exitFullscreen();
+}
+}
 
-        var canvas = document.createElement("canvas");
-        slideContent.appendChild(canvas);
-        var ctx = canvas.getContext("2d");
+window.Script15 = function()
+{
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+} else {
+    document.exitFullscreen();
+}
+}
 
-        // Set canvas dimensions to fit the slide area
-        canvas.width = slideContent.offsetWidth;
-        canvas.height = slideContent.offsetHeight;
-        canvas.style.position = 'absolute';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
-        canvas.style.zIndex = '9999';
-        canvas.style.pointerEvents = 'none';
+window.Script16 = function()
+{
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+} else {
+    document.exitFullscreen();
+}
+}
 
-        // Generate confetti particles
-        var particles = [];
-        for (var i = 0; i < options.particleCount; i++) {
-            particles.push({
-                x: Math.random() * canvas.width, // Random X position
-                y: canvas.height - 10, // Start near the bottom of the canvas
-                velocityX: (Math.random() * 2 - 1) * 2, // Random horizontal velocity
-                velocityY: -(Math.random() * options.startVelocity + 5), // Upward velocity
-                size: Math.random() * 10 + 5, // Random particle size
-                color: `hsl(${Math.random() * 360}, 100%, 50%)`,
-                rotation: Math.random() * 360, // Random initial rotation
-                rotationSpeed: (Math.random() * 2 - 1) * 2, // Random rotation speed
-                atRest: false // Tracks whether the particle has come to rest at the bottom
-            });
-        }
+window.Script17 = function()
+{
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+} else {
+    document.exitFullscreen();
+}
+}
 
-        // Animate the confetti particles with gravity, air resistance, and rotation
-        function animateConfetti() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+window.Script18 = function()
+{
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+} else {
+    document.exitFullscreen();
+}
+}
 
-            particles.forEach(function(particle) {
-                // Only render the particle if it has not hit the bottom yet
-                if (!particle.atRest) {
-                    // Draw the falling confetti with 3D-like rotation
-                    ctx.save();
-                    ctx.translate(particle.x + particle.size / 2, particle.y + particle.size / 2); // Move origin to center of the particle
-                    ctx.rotate(particle.rotation * Math.PI / 180); // Rotate the particle
-                    ctx.fillStyle = particle.color;
-                    ctx.fillRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size); // Draw rotated confetti
-                    ctx.restore();
+window.Script19 = function()
+{
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+} else {
+    document.exitFullscreen();
+}
+}
 
-                    // Update the particle's position
-                    particle.x += particle.velocityX; // Horizontal movement
-                    particle.y += particle.velocityY; // Vertical movement
-
-                    // Apply gravity
-                    particle.velocityY += options.gravity;
-
-                    // Apply air resistance
-                    particle.velocityX *= options.airResistance;
-                    particle.velocityY *= options.airResistance;
-
-                    // Rotate the confetti for 3D effect
-                    particle.rotation += particle.rotationSpeed;
-
-                    // If particle hits the bottom, stop it and mark it as at rest
-                    if (particle.y >= canvas.height - particle.size) {
-                        particle.y = canvas.height - particle.size;
-                        particle.velocityY = 0;
-                        particle.velocityX = 0;
-                        particle.atRest = true;
-                    }
-                } else {
-                    // Draw the confetti that has come to rest
-                    ctx.save();
-                    ctx.translate(particle.x + particle.size / 2, particle.y + particle.size / 2);
-                    ctx.rotate(particle.rotation * Math.PI / 180);
-                    ctx.fillStyle = particle.color;
-                    ctx.fillRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
-                    ctx.restore();
-                }
-            });
-
-            requestAnimationFrame(animateConfetti); // Continue animating
-        }
-
-        animateConfetti();
-    }
-
-    // Call the confetti effect
-    ConfettiEffect();
-})();
-
+window.Script20 = function()
+{
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+} else {
+    document.exitFullscreen();
+}
 }
 
 };
